@@ -1,0 +1,8 @@
+# what is a depends? annotated?
+
+# lifespan fastapi
+
+# sqlalchemy
+
+#contextmanager
+

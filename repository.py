@@ -6,8 +6,8 @@ from sqlalchemy import select
 class TaskRepository:
     @classmethod
     async def add_one(cls, data: SchemaTaskAdd) -> int:
-        async with new_session as session:
-            task_dict: dict = data.model_dump
+        async with new_session() as session:
+            task_dict: dict = data.model_dump()
 
             # orm creates new task
             # we dont put id, db yourself do it
@@ -26,3 +26,4 @@ class TaskRepository:
             result = await session.execute(query)
             task_models = result.scalars().all()
             return task_models
+
